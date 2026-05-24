@@ -431,3 +431,74 @@ h1 {
     min-height: auto;
   }
 }
+
+
+/* Próximo torneio */
+.next-event { margin: 4px 0 24px; }
+.next-event-card {
+  position: relative; overflow: hidden; display: grid;
+  grid-template-columns: 1.12fr 0.88fr; gap: 26px; padding: 28px;
+  border: 1px solid rgba(226, 184, 93, 0.3); border-radius: var(--radius);
+  background: radial-gradient(circle at 92% 4%, rgba(226,184,93,.19), transparent 34%),
+    linear-gradient(135deg, rgba(19,60,47,.96), rgba(9,28,22,.97));
+  box-shadow: var(--shadow);
+}
+.next-event-card::before {
+  content: "♠"; position: absolute; right: -12px; bottom: -78px;
+  color: rgba(226,184,93,.055); font-size: 250px; line-height: 1;
+}
+.event-status {
+  display: inline-flex; align-items: center; gap: 7px; margin-bottom: 15px;
+  padding: 7px 12px; border: 1px solid rgba(244,213,141,.34); border-radius: 999px;
+  background: rgba(226,184,93,.12); color: var(--gold-bright); font-size: 12px; font-weight: 700;
+}
+.event-status::before {
+  content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--gold);
+}
+.event-title {
+  margin: 0 0 8px; font-family: "Bebas Neue", sans-serif;
+  font-size: clamp(38px, 5.5vw, 52px); font-weight: 400; letter-spacing: .04em; line-height: 1;
+}
+.event-lead { margin: 0 0 22px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+.event-meta { display: grid; grid-template-columns: repeat(2, minmax(170px, 1fr)); gap: 12px; }
+.event-meta-item {
+  border: 1px solid rgba(255,255,255,.065); border-radius: 14px;
+  padding: 12px 14px; background: rgba(0,0,0,.13);
+}
+.event-meta-item span {
+  display: block; margin-bottom: 5px; color: var(--muted); font-size: 11px;
+  font-weight: 700; letter-spacing: .09em; text-transform: uppercase;
+}
+.event-meta-item strong { color: var(--text); font-size: 14px; line-height: 1.45; }
+.rules-card {
+  position: relative; z-index: 1; border: 1px solid rgba(255,255,255,.065);
+  background: rgba(4,17,13,.28); border-radius: 18px; padding: 20px;
+}
+.rules-card h4 { margin: 4px 0 14px; font-size: 19px; }
+.rules-list {
+  display: grid; gap: 9px; margin: 0 0 18px; padding: 0;
+  list-style: none; color: var(--text); font-size: 13px;
+}
+.rules-list li { display: flex; gap: 9px; line-height: 1.5; }
+.rules-list li::before { content: "♦"; flex: 0 0 auto; color: var(--gold); }
+.hand-ranking { margin-top: 15px; padding-top: 15px; border-top: 1px solid rgba(255,255,255,.075); }
+.hand-ranking-title {
+  margin: 0 0 10px; color: var(--muted); font-size: 11px;
+  font-weight: 700; letter-spacing: .09em; text-transform: uppercase;
+}
+.hands-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+.hands-pills span {
+  padding: 5px 8px; border: 1px solid rgba(226,184,93,.17); border-radius: 999px;
+  color: var(--gold-bright); background: rgba(226,184,93,.055); font-size: 11px;
+}
+.official-link {
+  display: inline-flex; align-items: center; gap: 7px; color: var(--gold-bright);
+  font-size: 13px; font-weight: 600; text-decoration: none;
+}
+.official-link:hover { text-decoration: underline; }
+@media (max-width: 900px) { .next-event-card { grid-template-columns: 1fr; } }
+@media (max-width: 620px) {
+  .next-event-card { padding: 19px; gap: 18px; }
+  .event-meta { grid-template-columns: 1fr; }
+  .rules-card { padding: 16px; }
+}

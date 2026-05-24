@@ -1,111 +1,152 @@
-[
-  {
-    "numero": 1,
-    "data": "2025-07-20",
-    "colocacoes": [
-      "Fonseca",
-      "Ricardão",
-      "Fernando Lucas",
-      "Tayná Mari",
-      "Gabriel Souza"
-    ]
+{
+  "proximoTorneio": {
+    "numero": 10,
+    "confirmado": false,
+    "status": "Previsão — ainda não confirmado",
+    "dataPrevista": "2026-06-20",
+    "horarioPrevisto": "14h / 15h",
+    "chegadaRecomendada": "14h30",
+    "modalidade": "Texas Hold’em No Limit",
+    "localPrevisto": "Art Life Design - Águas Claras",
+    "buyIn": "R$ 25,00",
+    "stackInicial": "~15.000 fichas",
+    "entradaTardia": "Até o término do 5º round; -1.000 fichas por round iniciado.",
+    "premiacao": [
+      "5–8 jogadores: 1º lugar recebe o total dos buy-ins menos 1 buy-in.",
+      "2º lugar não paga."
+    ],
+    "estrutura": [
+      "No Limit: é permitido ir all-in a qualquer momento.",
+      "9 níveis de 20 minutos cada.",
+      "Blinds: SB 25 / BB 50 até SB 2.000 / BB 4.000.",
+      "Tempo estimado de jogo: aproximadamente 2–3 horas."
+    ],
+    "rankingMaos": [
+      "Royal Flush",
+      "Straight Flush",
+      "Quadra",
+      "Full House",
+      "Flush",
+      "Sequência",
+      "Trinca",
+      "Dois Pares",
+      "Um Par",
+      "Carta Alta"
+    ],
+    "referencia": {
+      "titulo": "Ver ranking oficial de mãos no PokerStars",
+      "url": "https://www.pokerstars.com/poker/games/rules/hand-rankings/"
+    }
   },
-  {
-    "numero": 2,
-    "data": "2025-08-10",
-    "colocacoes": [
-      "Gabriel Souza",
-      "Fernando Lucas",
-      "Mylena",
-      "Tayná Mari",
-      "Kamilla Barbara"
-    ]
-  },
-  {
-    "numero": 3,
-    "data": "2025-09-21",
-    "colocacoes": [
-      "Gabriel Souza",
-      "Mylena",
-      "Tayná Mari",
-      "Fernando Lucas",
-      "Kamilla Barbara",
-      "Fonseca"
-    ]
-  },
-  {
-    "numero": 4,
-    "data": "2025-12-07",
-    "colocacoes": [
-      "Gabriel Souza",
-      "Fernando Lucas",
-      "Alana",
-      "Tayná Mari",
-      "Kamilla Barbara"
-    ]
-  },
-  {
-    "numero": 5,
-    "data": "2026-01-18",
-    "colocacoes": [
-      "Gabriel Souza",
-      "Gê",
-      "Tayná Mari",
-      "Mylena",
-      "Jéssica",
-      "Fonseca"
-    ]
-  },
-  {
-    "numero": 6,
-    "data": "2026-02-22",
-    "colocacoes": [
-      "Tayná Mari",
-      "Gabriel Souza",
-      "RodriGod",
-      "Dana Nicole",
-      "Fonseca"
-    ]
-  },
-  {
-    "numero": 7,
-    "data": "2026-03-07",
-    "colocacoes": [
-      "Thiago Ribeiro",
-      "Tayná Mari",
-      "Matheus",
-      "Fonseca",
-      "Saliba",
-      "Mylena",
-      "Kamilla Barbara",
-      "Gabriel Souza"
-    ]
-  },
-  {
-    "numero": 8,
-    "data": "2026-03-23",
-    "colocacoes": [
-      "Daniel Evangelista",
-      "Saliba",
-      "Mylena",
-      "Dana Nicole",
-      "Tayná Mari",
-      "Matheus",
-      "Gabriel Souza",
-      "Thiago Ribeiro",
-      "Fernando Lucas"
-    ]
-  },
-  {
-    "numero": 9,
-    "data": "2026-05-23",
-    "colocacoes": [
-      "Matheus",
-      "Dana Nicole",
-      "Fernando Lucas",
-      "Tayná Mari",
-      "Thiago Ribeiro",
-      "Gabriel Souza"
-    ]
-  }
-]
+  "torneios": [
+    {
+      "numero": 1,
+      "data": "2025-07-20",
+      "colocacoes": [
+        "Fonseca",
+        "Ricardão",
+        "Fernando Lucas",
+        "Tayná Mari",
+        "Gabriel Souza"
+      ]
+    },
+    {
+      "numero": 2,
+      "data": "2025-08-10",
+      "colocacoes": [
+        "Gabriel Souza",
+        "Fernando Lucas",
+        "Mylena",
+        "Tayná Mari",
+        "Kamilla Barbara"
+      ]
+    },
+    {
+      "numero": 3,
+      "data": "2025-09-21",
+      "colocacoes": [
+        "Gabriel Souza",
+        "Mylena",
+        "Tayná Mari",
+        "Fernando Lucas",
+        "Kamilla Barbara",
+        "Fonseca"
+      ]
+    },
+    {
+      "numero": 4,
+      "data": "2025-12-07",
+      "colocacoes": [
+        "Gabriel Souza",
+        "Fernando Lucas",
+        "Alana",
+        "Tayná Mari",
+        "Kamilla Barbara"
+      ]
+    },
+    {
+      "numero": 5,
+      "data": "2026-01-18",
+      "colocacoes": [
+        "Gabriel Souza",
+        "Gê",
+        "Tayná Mari",
+        "Mylena",
+        "Jéssica",
+        "Fonseca"
+      ]
+    },
+    {
+      "numero": 6,
+      "data": "2026-02-22",
+      "colocacoes": [
+        "Tayná Mari",
+        "Gabriel Souza",
+        "RodriGod",
+        "Dana Nicole",
+        "Fonseca"
+      ]
+    },
+    {
+      "numero": 7,
+      "data": "2026-03-07",
+      "colocacoes": [
+        "Thiago Ribeiro",
+        "Tayná Mari",
+        "Matheus",
+        "Fonseca",
+        "Saliba",
+        "Mylena",
+        "Kamilla Barbara",
+        "Gabriel Souza"
+      ]
+    },
+    {
+      "numero": 8,
+      "data": "2026-03-23",
+      "colocacoes": [
+        "Daniel Evangelista",
+        "Saliba",
+        "Mylena",
+        "Dana Nicole",
+        "Tayná Mari",
+        "Matheus",
+        "Gabriel Souza",
+        "Thiago Ribeiro",
+        "Fernando Lucas"
+      ]
+    },
+    {
+      "numero": 9,
+      "data": "2026-05-23",
+      "colocacoes": [
+        "Matheus",
+        "Dana Nicole",
+        "Fernando Lucas",
+        "Tayná Mari",
+        "Thiago Ribeiro",
+        "Gabriel Souza"
+      ]
+    }
+  ]
+}
