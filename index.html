@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ranking do Poker</title>
+  <meta name="description" content="Histórico e ranking dos torneios de poker.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.9/dist/chart.umd.min.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="felt-glow"></div>
+
+  <header class="hero">
+    <nav class="nav container">
+      <div class="brand">
+        <span class="chip">♠</span>
+        <div>
+          <p class="brand-label">Histórico oficial</p>
+          <h1>Ranking do Poker</h1>
+        </div>
+      </div>
+      <span class="badge" id="updatedAt">Atualizado</span>
+    </nav>
+
+    <div class="container hero-grid">
+      <section class="hero-copy">
+        <p class="eyebrow">♣ ♦ ♥ ♠</p>
+        <h2>Quem domina a mesa?</h2>
+        <p class="description">Vitórias, pódios, participações e o resultado de cada torneio em um só lugar.</p>
+      </section>
+
+      <section class="winner-card" id="lastWinnerCard" aria-label="Último campeão"></section>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="stats-grid" id="stats" aria-label="Estatísticas gerais"></section>
+
+    <section class="dashboard-grid">
+      <article class="panel ranking-panel">
+        <div class="panel-title">
+          <div>
+            <p class="section-label">Leaderboard</p>
+            <h3>Ranking geral</h3>
+          </div>
+          <span class="small-note">Ordenado por vitórias</span>
+        </div>
+
+        <div class="table-wrapper">
+          <table class="ranking-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Jogador</th>
+                <th title="Vitórias">🏆</th>
+                <th title="Pódios">🥉+</th>
+                <th title="Participações">Jogos</th>
+              </tr>
+            </thead>
+            <tbody id="rankingBody"></tbody>
+          </table>
+        </div>
+      </article>
+
+      <article class="panel chart-panel">
+        <div class="panel-title">
+          <div>
+            <p class="section-label">Gráfico</p>
+            <h3>Vitórias por jogador</h3>
+          </div>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="winsChart" aria-label="Gráfico de vitórias por jogador"></canvas>
+        </div>
+      </article>
+    </section>
+
+    <section class="history">
+      <div class="history-header">
+        <div>
+          <p class="section-label">Arquivo</p>
+          <h3>Resultados dos torneios</h3>
+        </div>
+        <select id="tournamentFilter" aria-label="Filtrar torneio"></select>
+      </div>
+      <div class="tournaments-grid" id="tournamentsGrid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>♠ Ranking do Poker · Feito para a resenha da mesa ♠</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,111 @@
+[
+  {
+    "numero": 1,
+    "data": "2025-07-20",
+    "colocacoes": [
+      "Fonseca",
+      "Ricardão",
+      "Fernando Lucas",
+      "Tayná Mari",
+      "Gabriel Souza"
+    ]
+  },
+  {
+    "numero": 2,
+    "data": "2025-08-10",
+    "colocacoes": [
+      "Gabriel Souza",
+      "Fernando Lucas",
+      "Mylena",
+      "Tayná Mari",
+      "Kamilla Barbara"
+    ]
+  },
+  {
+    "numero": 3,
+    "data": "2025-09-21",
+    "colocacoes": [
+      "Gabriel Souza",
+      "Mylena",
+      "Tayná Mari",
+      "Fernando Lucas",
+      "Kamilla Barbara",
+      "Fonseca"
+    ]
+  },
+  {
+    "numero": 4,
+    "data": "2025-12-07",
+    "colocacoes": [
+      "Gabriel Souza",
+      "Fernando Lucas",
+      "Alana",
+      "Tayná Mari",
+      "Kamilla Barbara"
+    ]
+  },
+  {
+    "numero": 5,
+    "data": "2026-01-18",
+    "colocacoes": [
+      "Gabriel Souza",
+      "Gê",
+      "Tayná Mari",
+      "Mylena",
+      "Jéssica",
+      "Fonseca"
+    ]
+  },
+  {
+    "numero": 6,
+    "data": "2026-02-22",
+    "colocacoes": [
+      "Tayná Mari",
+      "Gabriel Souza",
+      "RodriGod",
+      "Dana Nicole",
+      "Fonseca"
+    ]
+  },
+  {
+    "numero": 7,
+    "data": "2026-03-07",
+    "colocacoes": [
+      "Thiago Ribeiro",
+      "Tayná Mari",
+      "Matheus",
+      "Fonseca",
+      "Saliba",
+      "Mylena",
+      "Kamilla Barbara",
+      "Gabriel Souza"
+    ]
+  },
+  {
+    "numero": 8,
+    "data": "2026-03-23",
+    "colocacoes": [
+      "Daniel Evangelista",
+      "Saliba",
+      "Mylena",
+      "Dana Nicole",
+      "Tayná Mari",
+      "Matheus",
+      "Gabriel Souza",
+      "Thiago Ribeiro",
+      "Fernando Lucas"
+    ]
+  },
+  {
+    "numero": 9,
+    "data": "2026-05-23",
+    "colocacoes": [
+      "Matheus",
+      "Dana Nicole",
+      "Fernando Lucas",
+      "Tayná Mari",
+      "Thiago Ribeiro",
+      "Gabriel Souza"
+    ]
+  }
+]
