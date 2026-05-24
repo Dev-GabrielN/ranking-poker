@@ -502,3 +502,40 @@ h1 {
   .event-meta { grid-template-columns: 1fr; }
   .rules-card { padding: 16px; }
 }
+
+
+/* Ranking por pontuação */
+.ranking-table th:first-child,
+.ranking-table td:first-child {
+  width: 42px;
+}
+
+.ranking-table .points-value {
+  color: var(--gold-bright);
+  font-weight: 800;
+}
+
+.medal-value {
+  font-weight: 600;
+}
+
+@media (max-width: 620px) {
+  .ranking-panel {
+    padding: 17px 12px;
+  }
+
+  .ranking-table {
+    font-size: 12px;
+    min-width: 490px;
+  }
+
+  .ranking-table th,
+  .ranking-table td {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  .small-note {
+    display: none;
+  }
+}
