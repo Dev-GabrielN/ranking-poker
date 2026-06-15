@@ -1,26 +1,44 @@
 let TORNEIOS = [];
 let PROXIMO_TORNEIO = null;
+let POKER_CHIP_SETUP = null;
 
 const medals = ["🏆", "🥈", "🥉"];
 const pontosPorPosicao = [10, 7, 5];
 let pointsChart = null;
+let pokerSetupExpanded = false;
+let selectedPokerPlayers = null;
 
 async function carregarDados() {
-  const response = await fetch("./torneios.json");
+  const [torneiosResponse, pokerSetupResponse] = await Promise.all([
+    fetch("./torneios.json"),
+    fetch("./poker-chip-setup.json")
+  ]);
 
-  if (!response.ok) {
-    throw new Error(`Não foi possível carregar torneios.json: ${response.status}`);
+  if (!torneiosResponse.ok) {
+    throw new Error(`Não foi possível carregar torneios.json: ${torneiosResponse.status}`);
   }
 
-  const dados = await response.json();
+  if (!pokerSetupResponse.ok) {
+    throw new Error(`Não foi possível carregar poker-chip-setup.json: ${pokerSetupResponse.status}`);
+  }
+
+  const [dados, pokerSetupDados] = await Promise.all([
+    torneiosResponse.json(),
+    pokerSetupResponse.json()
+  ]);
 
   if (!dados || !Array.isArray(dados.torneios)) {
     throw new Error('JSON inválido: propriedade "torneios" ausente.');
   }
 
+  if (!pokerSetupDados || !pokerSetupDados.pokerChipSetup) {
+    throw new Error('JSON inválido: propriedade "pokerChipSetup" ausente.');
+  }
+
   return {
     proximoTorneio: dados.proximoTorneio || null,
-    torneios: dados.torneios.sort((a, b) => b.numero - a.numero)
+    torneios: dados.torneios.sort((a, b) => b.numero - a.numero),
+    pokerChipSetup: pokerSetupDados.pokerChipSetup
   };
 }
 
@@ -29,6 +47,14 @@ function formatDate(dateString) {
 
   const [year, month, day] = dateString.split("-");
   return `${day}/${month}/${year}`;
+}
+
+function formatNumber(value) {
+  return new Intl.NumberFormat("pt-BR").format(value);
+}
+
+function formatMinutes(value) {
+  return `${value} min`;
 }
 
 function pontosDaColocacao(index) {
@@ -296,6 +322,199 @@ function renderTournaments(selected = "all") {
   `).join("");
 }
 
+function renderPokerBlindRows(levels) {
+  return levels.map((item) => {
+    if (item.type === "break") {
+      return `
+        <tr class="blind-break">
+          <td colspan="3">
+            <strong>${item.label}</strong>
+            <span>${item.description}</span>
+          </td>
+          <td>${formatMinutes(item.durationMinutes)}</td>
+          <td>Color-up</td>
+        </tr>
+      `;
+    }
+
+    return `
+      <tr>
+        <td>${item.level}</td>
+        <td>${formatNumber(item.smallBlind)}</td>
+        <td>${formatNumber(item.bigBlind)}</td>
+        <td>${formatMinutes(item.durationMinutes)}</td>
+        <td>${item.optional ? "Opcional" : "-"}</td>
+      </tr>
+    `;
+  }).join("");
+}
+
+function bindPokerSetupEvents() {
+  const toggle = document.getElementById("pokerSetupToggle");
+
+  if (toggle) {
+    toggle.addEventListener("click", () => {
+      pokerSetupExpanded = !pokerSetupExpanded;
+      renderPokerChipSetup();
+    });
+  }
+
+  document.querySelectorAll("[data-poker-players]").forEach((button) => {
+    button.addEventListener("click", () => {
+      selectedPokerPlayers = Number(button.dataset.pokerPlayers);
+      renderPokerChipSetup();
+    });
+  });
+}
+
+function renderPokerChipSetup() {
+  const setupEl = document.getElementById("pokerSetup");
+
+  if (!setupEl || !POKER_CHIP_SETUP) return;
+
+  const distributions = POKER_CHIP_SETUP.distributions || [];
+  const selectedDistribution = distributions.find((item) => item.players === selectedPokerPlayers)
+    || distributions[0];
+
+  if (!selectedDistribution) {
+    setupEl.innerHTML = "";
+    return;
+  }
+
+  selectedPokerPlayers = selectedDistribution.players;
+
+  const chipsById = new Map((POKER_CHIP_SETUP.chips || []).map((chip) => [chip.id, chip]));
+  const playerOptions = distributions.map((distribution) => `
+    <button
+      class="player-tab ${distribution.players === selectedDistribution.players ? "active" : ""}"
+      type="button"
+      data-poker-players="${distribution.players}"
+      aria-pressed="${distribution.players === selectedDistribution.players}"
+    >
+      ${distribution.players} jogadores
+    </button>
+  `).join("");
+
+  const chipRows = selectedDistribution.chipsPerPlayer.map((item) => {
+    const chip = chipsById.get(item.chipId) || {
+      id: item.chipId,
+      colorName: item.chipId,
+      value: 0
+    };
+
+    return `
+      <tr>
+        <td>
+          <span class="chip-color-label">
+            <span class="chip-swatch chip-${chip.id}"></span>
+            ${chip.colorName}
+          </span>
+        </td>
+        <td>${formatNumber(chip.value)}</td>
+        <td>${formatNumber(item.quantity)}</td>
+        <td>${formatNumber(item.used)}</td>
+        <td>${formatNumber(item.remaining)}</td>
+        <td>${formatNumber(item.valuePerPlayer)}</td>
+      </tr>
+    `;
+  }).join("");
+
+  const blindStructure = POKER_CHIP_SETUP.blindStructure;
+  const blindNotes = blindStructure.notes
+    .map((note) => `<li>${note}</li>`)
+    .join("");
+
+  setupEl.innerHTML = `
+    <article class="poker-setup-panel">
+      <button
+        class="setup-toggle"
+        id="pokerSetupToggle"
+        type="button"
+        aria-expanded="${pokerSetupExpanded}"
+        aria-controls="pokerSetupContent"
+      >
+        <span>
+          <span class="section-label">Consulta rápida</span>
+          <strong>${POKER_CHIP_SETUP.title}</strong>
+          <small>${POKER_CHIP_SETUP.targetDuration} · maleta organizada por jogadores</small>
+        </span>
+        <span class="setup-toggle-icon" aria-hidden="true">${pokerSetupExpanded ? "−" : "+"}</span>
+      </button>
+
+      <div class="setup-content" id="pokerSetupContent" ${pokerSetupExpanded ? "" : "hidden"}>
+        <p class="setup-description">${POKER_CHIP_SETUP.description}</p>
+
+        <div class="player-tabs" aria-label="Selecionar quantidade de jogadores">
+          ${playerOptions}
+        </div>
+
+        <div class="setup-metrics">
+          <div>
+            <span>Quantidade</span>
+            <strong>${selectedDistribution.players} jogadores</strong>
+          </div>
+          <div>
+            <span>Stack por jogador</span>
+            <strong>${formatNumber(selectedDistribution.stackPerPlayer)}</strong>
+          </div>
+          <div>
+            <span>Total em jogo</span>
+            <strong>${formatNumber(selectedDistribution.totalInPlay)}</strong>
+          </div>
+        </div>
+
+        <p class="green-chip-note">${POKER_CHIP_SETUP.greenChipNote}</p>
+
+        <div class="setup-block">
+          <div class="setup-block-title">
+            <h4>Distribuição por jogador</h4>
+            <span>Fichas usadas e sobras da maleta</span>
+          </div>
+          <div class="table-wrapper">
+            <table class="setup-table chip-distribution-table">
+              <thead>
+                <tr>
+                  <th>Cor</th>
+                  <th>Valor</th>
+                  <th>Por jogador</th>
+                  <th>Usado</th>
+                  <th>Sobra</th>
+                  <th>Valor/jogador</th>
+                </tr>
+              </thead>
+              <tbody>${chipRows}</tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="setup-block">
+          <div class="setup-block-title">
+            <h4>Estrutura de blinds</h4>
+            <span>Níveis de ${formatMinutes(blindStructure.defaultLevelDurationMinutes)} · break de ${formatMinutes(blindStructure.breakDurationMinutes)}</span>
+          </div>
+          <div class="table-wrapper">
+            <table class="setup-table blind-table">
+              <thead>
+                <tr>
+                  <th>Nível</th>
+                  <th>Small blind</th>
+                  <th>Big blind</th>
+                  <th>Duração</th>
+                  <th>Obs.</th>
+                </tr>
+              </thead>
+              <tbody>${renderPokerBlindRows(blindStructure.levels)}</tbody>
+            </table>
+          </div>
+          <ul class="setup-notes">${blindNotes}</ul>
+        </div>
+      </div>
+    </article>
+  `;
+
+  bindPokerSetupEvents();
+}
+
 function renderUpdatedAt() {
   const latest = TORNEIOS[0];
   const updatedAt = document.getElementById("updatedAt");
@@ -320,6 +539,10 @@ function renderError(error) {
   document.getElementById("tournamentsGrid").innerHTML = `
     <p class="empty">Não foi possível carregar o histórico.</p>
   `;
+
+  document.getElementById("pokerSetup").innerHTML = `
+    <p class="empty">Não foi possível carregar a distribuição de fichas e blinds.</p>
+  `;
 }
 
 async function initialize() {
@@ -328,6 +551,7 @@ async function initialize() {
 
     PROXIMO_TORNEIO = dados.proximoTorneio;
     TORNEIOS = dados.torneios;
+    POKER_CHIP_SETUP = dados.pokerChipSetup;
 
     const players = createPlayerStats();
 
@@ -339,6 +563,7 @@ async function initialize() {
     renderPointsChart(players);
     renderTournamentOptions();
     renderTournaments();
+    renderPokerChipSetup();
   } catch (error) {
     renderError(error);
   }

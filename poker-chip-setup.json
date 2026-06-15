@@ -1,0 +1,288 @@
+{
+  "pokerChipSetup": {
+    "title": "Distribuição de Fichas e Blinds",
+    "description": "Configuração para partidas casuais entre amigos, usando a maleta de fichas disponível e mantendo as fichas verdes apenas como apoio.",
+    "targetDuration": "2h a 3h",
+    "greenChipNote": "As fichas verdes ficam em baixa quantidade porque são úteis só no começo da partida e podem sair no color-up.",
+    "chips": [
+      {
+        "id": "green",
+        "colorName": "Verde",
+        "value": 25,
+        "available": 100
+      },
+      {
+        "id": "blue",
+        "colorName": "Azul",
+        "value": 50,
+        "available": 125
+      },
+      {
+        "id": "black",
+        "colorName": "Preta",
+        "value": 100,
+        "available": 125
+      },
+      {
+        "id": "pink",
+        "colorName": "Rosa",
+        "value": 500,
+        "available": 50
+      },
+      {
+        "id": "yellow",
+        "colorName": "Amarela",
+        "value": 1000,
+        "available": 50
+      }
+    ],
+    "distributions": [
+      {
+        "players": 5,
+        "stackPerPlayer": 19000,
+        "totalInPlay": 95000,
+        "chipsPerPlayer": [
+          {
+            "chipId": "green",
+            "quantity": 10,
+            "used": 50,
+            "remaining": 50,
+            "valuePerPlayer": 250
+          },
+          {
+            "chipId": "blue",
+            "quantity": 25,
+            "used": 125,
+            "remaining": 0,
+            "valuePerPlayer": 1250
+          },
+          {
+            "chipId": "black",
+            "quantity": 25,
+            "used": 125,
+            "remaining": 0,
+            "valuePerPlayer": 2500
+          },
+          {
+            "chipId": "pink",
+            "quantity": 10,
+            "used": 50,
+            "remaining": 0,
+            "valuePerPlayer": 5000
+          },
+          {
+            "chipId": "yellow",
+            "quantity": 10,
+            "used": 50,
+            "remaining": 0,
+            "valuePerPlayer": 10000
+          }
+        ]
+      },
+      {
+        "players": 6,
+        "stackPerPlayer": 15200,
+        "totalInPlay": 91200,
+        "chipsPerPlayer": [
+          {
+            "chipId": "green",
+            "quantity": 8,
+            "used": 48,
+            "remaining": 52,
+            "valuePerPlayer": 200
+          },
+          {
+            "chipId": "blue",
+            "quantity": 20,
+            "used": 120,
+            "remaining": 5,
+            "valuePerPlayer": 1000
+          },
+          {
+            "chipId": "black",
+            "quantity": 20,
+            "used": 120,
+            "remaining": 5,
+            "valuePerPlayer": 2000
+          },
+          {
+            "chipId": "pink",
+            "quantity": 8,
+            "used": 48,
+            "remaining": 2,
+            "valuePerPlayer": 4000
+          },
+          {
+            "chipId": "yellow",
+            "quantity": 8,
+            "used": 48,
+            "remaining": 2,
+            "valuePerPlayer": 8000
+          }
+        ]
+      },
+      {
+        "players": 7,
+        "stackPerPlayer": 13225,
+        "totalInPlay": 92575,
+        "chipsPerPlayer": [
+          {
+            "chipId": "green",
+            "quantity": 7,
+            "used": 49,
+            "remaining": 51,
+            "valuePerPlayer": 175
+          },
+          {
+            "chipId": "blue",
+            "quantity": 17,
+            "used": 119,
+            "remaining": 6,
+            "valuePerPlayer": 850
+          },
+          {
+            "chipId": "black",
+            "quantity": 17,
+            "used": 119,
+            "remaining": 6,
+            "valuePerPlayer": 1700
+          },
+          {
+            "chipId": "pink",
+            "quantity": 7,
+            "used": 49,
+            "remaining": 1,
+            "valuePerPlayer": 3500
+          },
+          {
+            "chipId": "yellow",
+            "quantity": 7,
+            "used": 49,
+            "remaining": 1,
+            "valuePerPlayer": 7000
+          }
+        ]
+      },
+      {
+        "players": 8,
+        "stackPerPlayer": 11400,
+        "totalInPlay": 91200,
+        "chipsPerPlayer": [
+          {
+            "chipId": "green",
+            "quantity": 6,
+            "used": 48,
+            "remaining": 52,
+            "valuePerPlayer": 150
+          },
+          {
+            "chipId": "blue",
+            "quantity": 15,
+            "used": 120,
+            "remaining": 5,
+            "valuePerPlayer": 750
+          },
+          {
+            "chipId": "black",
+            "quantity": 15,
+            "used": 120,
+            "remaining": 5,
+            "valuePerPlayer": 1500
+          },
+          {
+            "chipId": "pink",
+            "quantity": 6,
+            "used": 48,
+            "remaining": 2,
+            "valuePerPlayer": 3000
+          },
+          {
+            "chipId": "yellow",
+            "quantity": 6,
+            "used": 48,
+            "remaining": 2,
+            "valuePerPlayer": 6000
+          }
+        ]
+      }
+    ],
+    "blindStructure": {
+      "defaultLevelDurationMinutes": 15,
+      "breakDurationMinutes": 10,
+      "notes": [
+        "Estrutura pensada para jogo casual entre amigos durar aproximadamente 2h a 3h.",
+        "As fichas verdes de 25 e azuis de 50 são usadas apenas no começo e podem ser removidas no break/color-up.",
+        "Se o grupo quiser uma partida mais longa, basta jogar os mesmos níveis com 20 minutos em vez de 15."
+      ],
+      "levels": [
+        {
+          "level": 1,
+          "smallBlind": 25,
+          "bigBlind": 50,
+          "durationMinutes": 15
+        },
+        {
+          "level": 2,
+          "smallBlind": 50,
+          "bigBlind": 100,
+          "durationMinutes": 15
+        },
+        {
+          "level": 3,
+          "smallBlind": 100,
+          "bigBlind": 200,
+          "durationMinutes": 15
+        },
+        {
+          "level": 4,
+          "smallBlind": 200,
+          "bigBlind": 400,
+          "durationMinutes": 15
+        },
+        {
+          "level": 5,
+          "smallBlind": 300,
+          "bigBlind": 600,
+          "durationMinutes": 15
+        },
+        {
+          "type": "break",
+          "label": "Break / Color-up",
+          "durationMinutes": 10,
+          "description": "Pausa de 10 minutos. Aproveitar para remover/arredondar fichas verdes de 25 e azuis de 50, trocando por fichas de 100/500 quando possível."
+        },
+        {
+          "level": 6,
+          "smallBlind": 500,
+          "bigBlind": 1000,
+          "durationMinutes": 15
+        },
+        {
+          "level": 7,
+          "smallBlind": 1000,
+          "bigBlind": 2000,
+          "durationMinutes": 15
+        },
+        {
+          "level": 8,
+          "smallBlind": 1500,
+          "bigBlind": 3000,
+          "durationMinutes": 15
+        },
+        {
+          "level": 9,
+          "smallBlind": 2000,
+          "bigBlind": 4000,
+          "durationMinutes": 15
+        },
+        {
+          "level": 10,
+          "smallBlind": 3000,
+          "bigBlind": 6000,
+          "durationMinutes": 15,
+          "optional": true
+        }
+      ]
+    }
+  }
+}
