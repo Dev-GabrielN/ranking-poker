@@ -327,23 +327,20 @@ function renderPokerBlindRows(levels) {
     if (item.type === "break") {
       return `
         <tr class="blind-break">
-          <td colspan="3">
-            <strong>${item.label}</strong>
+          <td colspan="4">
+            <strong>${item.label.replace(" / Color-up", "")}</strong>
             <span>${item.description}</span>
           </td>
-          <td>${formatMinutes(item.durationMinutes)}</td>
-          <td>Color-up</td>
         </tr>
       `;
     }
 
     return `
       <tr>
-        <td>${item.level}</td>
+        <td>${item.level}${item.optional ? " (opcional)" : ""}</td>
         <td>${formatNumber(item.smallBlind)}</td>
         <td>${formatNumber(item.bigBlind)}</td>
         <td>${formatMinutes(item.durationMinutes)}</td>
-        <td>${item.optional ? "Opcional" : "-"}</td>
       </tr>
     `;
   }).join("");
@@ -497,10 +494,9 @@ function renderPokerChipSetup() {
               <thead>
                 <tr>
                   <th>Nível</th>
-                  <th>Small blind</th>
-                  <th>Big blind</th>
-                  <th>Duração</th>
-                  <th>Obs.</th>
+                  <th>SB</th>
+                  <th>BB</th>
+                  <th>Tempo</th>
                 </tr>
               </thead>
               <tbody>${renderPokerBlindRows(blindStructure.levels)}</tbody>

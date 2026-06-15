@@ -550,6 +550,11 @@ h1 {
   font-size: 14px;
 }
 
+.blind-table {
+  min-width: 0;
+  table-layout: fixed;
+}
+
 .setup-table th {
   padding: 0 11px 13px;
   color: var(--muted);
@@ -715,10 +720,34 @@ h1 {
     font-size: 12px;
   }
 
+  .blind-table {
+    min-width: 0;
+    font-size: 12px;
+  }
+
   .setup-table th,
   .setup-table td {
     padding-left: 8px;
     padding-right: 8px;
+  }
+
+  .blind-table th,
+  .blind-table td {
+    padding: 10px 6px;
+  }
+
+  .blind-table th:first-child,
+  .blind-table td:first-child {
+    width: 38%;
+    text-align: left;
+  }
+
+  .blind-break td {
+    padding: 12px 10px;
+  }
+
+  .blind-break span {
+    font-size: 11px;
   }
 }
 
