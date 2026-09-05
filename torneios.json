@@ -2,12 +2,12 @@
   "proximoTorneio": {
     "numero": 10,
     "confirmado": false,
-    "status": "Previsão — ainda não confirmado",
-    "dataPrevista": "2026-06-20",
-    "horarioPrevisto": "14h / 15h",
-    "chegadaRecomendada": "14h30",
+    "status": "Organização — sondagem de jogadores",
+    "dataPrevista": null,
+    "horarioPrevisto": "15h–16h",
+    "chegadaRecomendada": "30 min antes",
     "modalidade": "Texas Hold’em No Limit",
-    "localPrevisto": "Art Life Design - Águas Claras",
+    "localPrevisto": "A definir",
     "buyIn": "R$ 25,00",
     "stackInicial": "~15.000 fichas",
     "entradaTardia": "Até o término do 5º round; -1.000 fichas por round iniciado.",
@@ -36,7 +36,8 @@
     "referencia": {
       "titulo": "Ver ranking oficial de mãos no PokerStars",
       "url": "https://www.pokerstars.com/poker/games/rules/hand-rankings/"
-    }
+    },
+    "descricao": "Sondagem aberta para organizar o próximo poker. Data e local ainda serão definidos conforme a disponibilidade da galera."
   },
   "torneios": [
     {
