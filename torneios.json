@@ -3,7 +3,7 @@
     "numero": 10,
     "confirmado": false,
     "status": "Organização — sondagem de jogadores",
-    "dataPrevista": null,
+    "dataPrevista": "2026-09-26",
     "horarioPrevisto": "15h–16h",
     "chegadaRecomendada": "30 min antes",
     "modalidade": "Texas Hold’em No Limit",
@@ -37,7 +37,7 @@
       "titulo": "Ver ranking oficial de mãos no PokerStars",
       "url": "https://www.pokerstars.com/poker/games/rules/hand-rankings/"
     },
-    "descricao": "Sondagem aberta para organizar o próximo poker. Data e local ainda serão definidos conforme a disponibilidade da galera."
+    "descricao": "Sondagem aberta para organizar o poker de 26/09/2026. Horário de início entre 15h e 16h; local ainda a definir."
   },
   "torneios": [
     {
