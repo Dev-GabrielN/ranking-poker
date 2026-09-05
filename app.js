@@ -120,14 +120,12 @@ function renderNextEvent() {
         <span class="event-status">${e.status}</span>
         <p class="section-label">Joguinho de Poker ♠️</p>
         <h2 class="event-title">${e.numero}º Torneio de Poker</h2>
-        <p class="event-lead">
-          Previsão para o sábado da terceira semana de junho. A data e o local ainda precisam ser confirmados.
-        </p>
+        <p class="event-lead">${e.descricao || "Data e local ainda serão definidos."}</p>
 
         <div class="event-meta">
           <div class="event-meta-item">
             <span>Data prevista</span>
-            <strong>${formatDate(e.dataPrevista)}</strong>
+            <strong>${formatDate(e.dataPrevista) || "A definir"}</strong>
           </div>
           <div class="event-meta-item">
             <span>Horário previsto</span>
